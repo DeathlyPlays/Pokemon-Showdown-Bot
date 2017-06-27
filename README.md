@@ -1,4 +1,4 @@
-﻿Pokemon Showdown Bot for Node
+Pokemon Showdown Bot for Node
 ====================
 
 [![Build Status](https://travis-ci.org/Ecuacion/Pokemon-Showdown-Node-Bot.svg)](https://travis-ci.org/Ecuacion/Pokemon-Showdown-Node-Bot)
