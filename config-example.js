@@ -128,7 +128,7 @@ exports.botguide = "https://github.com/Ecuacion/Pokemon-Showdown-Node-Bot/blob/m
 
 //When you pm the bot but don't use a command, it replies you this message. Example: "Hi, I'm a bot. Use .help to view a command guide"
 //The var #USER is replaced with the username that pms it
-exports.pmhelp = "Hi #USER! I am a robot, please PM another staff member if you need help. Command guide: https://github.com/Ecuacion/Pokemon-Showdown-Node-Bot/blob/master/commands/README.md";
+exports.pmhelp = "Hi #USER! I am a robot, please PM another staff member if you need help. Command guide: https://github.com/DeathlyPlays/Pokemon-Showdown-Bot/blob/master/commands/README.md";
 
 /*
 * Language configuration
