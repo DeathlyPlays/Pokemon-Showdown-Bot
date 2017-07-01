@@ -5,9 +5,9 @@
 const settingsDataFile = AppOptions.data + 'settings.json';
 const cacheDataFile = AppOptions.data + '_temp/' + 'http-cache.json';
 
-let settings = exports.settings = {};
+var settings = exports.settings = {};
 
-let FlatFileManager = exports.FlatFileManager = (function () {
+var FlatFileManager = exports.FlatFileManager = (function () {
 	function FlatFileManager (file) {
 		this.file = file;
 		if (!fs.existsSync(file))
@@ -26,8 +26,8 @@ let FlatFileManager = exports.FlatFileManager = (function () {
 	};
 
 	FlatFileManager.prototype.write = function (data) {
-		let self = this;
-		let finishWriting = function () {
+		var self = this;
+		var finishWriting = function () {
 			self.writing = false;
 			if (self.writePending) {
 				self.writePending = false;
@@ -60,7 +60,7 @@ let FlatFileManager = exports.FlatFileManager = (function () {
 	return FlatFileManager;
 })();
 
-let settingsFFM = exports.settingsFFM = new FlatFileManager(settingsDataFile);
+var settingsFFM = exports.settingsFFM = new FlatFileManager(settingsDataFile);
 
 try {
 	settings = exports.settings = settingsFFM.readObj();
@@ -69,7 +69,7 @@ try {
 	error("Could not import settings: " + sys.inspect(e));
 }
 
-let save = exports.save =  function () {
+var save = exports.save =  function () {
 	settingsFFM.writeObj(settings);
 };
 
@@ -78,7 +78,7 @@ let save = exports.save =  function () {
  */
 
 exports.userCan = function (room, user, permission) {
-	let rank;
+	var rank;
 	if (!settings['commands'] || !settings['commands'][room] || typeof settings['commands'][room][permission] === "undefined") {
 		rank = Config.defaultPermission;
 		if (Config.permissionExceptions[permission]) rank = Config.permissionExceptions[permission];
@@ -88,10 +88,10 @@ exports.userCan = function (room, user, permission) {
 	return Tools.equalOrHigherRank(user, rank);
 };
 
-let permissions = exports.permissions = {};
+var permissions = exports.permissions = {};
 
 exports.addPermissions = function (perms) {
-	for (let i = 0; i < perms.length; i++) {
+	for (var i = 0; i < perms.length; i++) {
 		permissions[perms[i]] = 1;
 	}
 };
@@ -106,10 +106,10 @@ exports.setPermission = function (room, perm, rank) {
  * Configuration
  */
 
-let parserFilters = exports.parserFilters = {};
+var parserFilters = exports.parserFilters = {};
 
 exports.callParseFilters = function (room, by, msg) {
-	for (let f in parserFilters) {
+	for (var f in parserFilters) {
 		if (typeof parserFilters[f] === "function") {
 			if (parserFilters[f].call(this, room, by, msg)) return true;
 		}
@@ -128,7 +128,7 @@ exports.deleteParseFilter = function (id) {
 	return true;
 };
 
-let isSleeping = exports.isSleeping = function (room) {
+var isSleeping = exports.isSleeping = function (room) {
 	if (settings.sleep && typeof settings.sleep[room] === "boolean") return settings.sleep[room];
 	if (Config.ignoreRooms) return !!Config.ignoreRooms[room];
 	return false;
@@ -163,9 +163,9 @@ exports.applyConfig = function () {
  * Seen / Alts feature
  */
 
-let users = exports.users = {};
+var users = exports.users = {};
 
-let User = exports.User = (function () {
+var User = exports.User = (function () {
 	function User (name) {
 		this.name = name;
 		this.id = toId(name);
@@ -180,7 +180,7 @@ let User = exports.User = (function () {
 		if (alt === this.id) return;
 		if (this.alts.indexOf(alt) < 0) {
 			this.alts.push(alt);
-			for (let i = 0; i < this.alts.length; i++) {
+			for (var i = 0; i < this.alts.length; i++) {
 				if (users[this.alts[i]]) {
 					users[this.alts[i]].markAlt(alt); // recursive
 				}
@@ -194,12 +194,12 @@ let User = exports.User = (function () {
 
 	User.prototype.setOffline = function () {
 		this.online = false;
-		for (let r in this.rooms) delete this.rooms[r];
+		for (var r in this.rooms) delete this.rooms[r];
 	};
 
 	User.prototype.reportSeen = function (room, action, args) {
 		if (!args) args = [];
-		let dSeen = {};
+		var dSeen = {};
 		dSeen.name = this.name;
 		dSeen.time = Date.now();
 		if (!(room in Config.privateRooms)) {
@@ -215,36 +215,36 @@ let User = exports.User = (function () {
 
 exports.userManager = {
 	isOnline: function (user) {
-		let userid = toId(user);
+		var userid = toId(user);
 		if (!users[userid]) return false;
 		return !!users[userid].online;
 	},
 
 	getName: function (user) {
-		let userid = toId(user);
+		var userid = toId(user);
 		if (!users[userid]) return userid;
 		return users[userid].name;
 	},
 
 	getSeen: function (user) {
-		let userid = toId(user);
+		var userid = toId(user);
 		if (!users[userid]) return null;
 		return users[userid].lastSeen;
 	},
 
 	getAlts: function (user) {
-		let userid = toId(user);
+		var userid = toId(user);
 		if (!users[userid]) return null;
 		return users[userid].alts;
 	},
 
 	reportJoin: function (user, room) {
 		if (Config.disableSeen) return;
-		let userid = toId(user);
+		var userid = toId(user);
 		if (!users[userid]) {
 			users[userid] = new User(user.substr(1));
 		}
-		let userObj = users[userid];
+		var userObj = users[userid];
 		userObj.setOnline();
 		userObj.rooms[room] = {group: user.charAt(0)};
 		userObj.reportSeen(room, 'j', []);
@@ -252,22 +252,22 @@ exports.userManager = {
 
 	reportChat: function (user, room) {
 		if (Config.disableSeen) return;
-		let userid = toId(user);
+		var userid = toId(user);
 		if (!users[userid]) {
 			users[userid] = new User(user.substr(1));
 		}
-		let userObj = users[userid];
+		var userObj = users[userid];
 		userObj.setOnline();
 		userObj.reportSeen(room, 'c', []);
 	},
 
 	reportLeave: function (user, room) {
 		if (Config.disableSeen) return;
-		let userid = toId(user);
+		var userid = toId(user);
 		if (!users[userid]) {
 			users[userid] = new User(user.substr(1));
 		}
-		let userObj = users[userid];
+		var userObj = users[userid];
 		if (userObj.rooms[room]) delete userObj.rooms[room];
 		userObj.reportSeen(room, 'l', []);
 		if (Object.keys(userObj.rooms).length > 0) {
@@ -279,31 +279,31 @@ exports.userManager = {
 
 	reportRename: function (user, newName, room) {
 		if (Config.disableSeen) return;
-		let userid = toId(user);
+		var userid = toId(user);
 		if (!users[userid]) {
 			users[userid] = new User(user.substr(1));
 		}
-		let userObj = users[userid];
+		var userObj = users[userid];
 		if (toId(user) === toId(newName)) {
 			// Just a name change
 			userObj.name = newName.substr(1);
 			userObj.rooms[room] = {group: newName.charAt(0)};
 		} else {
 			// User change
-			let newUserid = toId(newName);
+			var newUserid = toId(newName);
 			userObj.setOffline();
 			if (!Config.disableAlts) userObj.markAlt(newUserid);
 			userObj.reportSeen(room, 'n', [newName.substr(1)]);
 			if (!users[newUserid]) {
 				users[newUserid] = new User(newName.substr(1));
 			}
-			let newUserObj = users[newUserid];
+			var newUserObj = users[newUserid];
 			newUserObj.setOnline();
 			newUserObj.rooms[room] = {group: newName.charAt(0)};
 			if (!Config.disableAlts) {
 				newUserObj.markAlt(userid);
 				// merge alts
-				for (let i = 0; i < userObj.alts.length; i++) {
+				for (var i = 0; i < userObj.alts.length; i++) {
 					newUserObj.markAlt(userObj.alts[i]);
 				}
 			}
@@ -316,9 +316,9 @@ exports.userManager = {
  * Cache System
  */
 
-let httpCache = exports.httpCache = {};
+var httpCache = exports.httpCache = {};
 
-let cacheFFM = exports.cacheFFM = new FlatFileManager(cacheDataFile);
+var cacheFFM = exports.cacheFFM = new FlatFileManager(cacheDataFile);
 
 try {
 	httpCache = exports.httpCache = cacheFFM.readObj();
@@ -328,7 +328,7 @@ try {
 }
 
 exports.httpGetAndCache = function (url, callback, onDownload) {
-	for (let i in httpCache) {
+	for (var i in httpCache) {
 		if (httpCache[i].url === url) {
 			fs.readFile(AppOptions.data + '_temp/' + i, function (err, data) {
 				if (err) {
@@ -347,7 +347,7 @@ exports.httpGetAndCache = function (url, callback, onDownload) {
 			if (typeof callback === "function") callback(null, err);
 			return;
 		}
-		let file;
+		var file;
 		do {
 			file = "cache.http." + Tools.generateRandomNick(5) + ".tmp";
 		} while (httpCache[file]);
@@ -362,8 +362,8 @@ exports.httpGetAndCache = function (url, callback, onDownload) {
 };
 
 exports.unCacheUrl = function (url) {
-	let uncache, changed = false;
-	for (let file in httpCache) {
+	var uncache, changed = false;
+	for (var file in httpCache) {
 		uncache = false;
 		if (typeof url === "string") {
 			if (url === httpCache[file].url) uncache = true;
