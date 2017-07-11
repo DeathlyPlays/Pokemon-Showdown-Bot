@@ -393,7 +393,7 @@ var loadLang = exports.loadLang = function (lang, reloading) {
 		if (reloading) Tools.uncacheTree('./languages/' + lang + '/' + file);
 		tempObj = require('./languages/' + lang + '/' + file).translations;
 		for (var t in tempObj) {
-			if (t === "commands") Object.merge(cmdsTra, tempObj[t]);
+			if (t === "commands") Object.assign(cmdsTra, tempObj[t]);
 			else tradObj[t] = tempObj[t];
 		}
 	});
