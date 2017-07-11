@@ -79,7 +79,7 @@ var loadCommands = exports.loadCommands = function (reloading) {
 		if (file.substr(-3) === '.js') {
 			if (reloading) Tools.uncacheTree('./commands/' + file);
 			try {
-				Object.merge(commands, require('./commands/' + file).commands);
+				Object.assign(commands, require('./commands/' + file).commands);
 			} catch (e) {
 				errlog(e.stack);
 				error("Could not import commands file: ./commands/" + file + " | " + sys.inspect(e));
