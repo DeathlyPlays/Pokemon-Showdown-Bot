@@ -109,9 +109,11 @@ Credits
 Contributors:
 
  - [Freigeist](https://github.com/Freigeist) (Languages/Translation feature and bug fixes)
+ - [Insist](https://github.com/DeathlyPlays) (bug fixes)
  - [Irraquated](https://github.com/Irraquated) (Languages and bug fixes)
  - [panpawn](https://github.com/panpawn) (YouTube feature, fixes)
  - [Spudling](https://github.com/Spudling) (German translation)
+ - [The Run](https://github.com/TheRun98) (Console bug fixes)
 
 Part of this code is imported from other developments, so credits to:
 		

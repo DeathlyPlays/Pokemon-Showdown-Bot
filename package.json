@@ -1,6 +1,6 @@
 {
   "name": "pokemon-showdown-node-bot",
-  "version": "0.7.2",
+  "version": "0.8.0",
   "author": {
     "name": "Ecuacion",
 	"email": "alajandro5gt01@gmail.com",
@@ -16,6 +16,10 @@
       "url": "https://github.com/Freigeist"
     },
     {
+      "name": "Insist",
+      "url": "https://github.com/DeathlyPlays"
+    }
+    {
       "name": "Irraquated",
       "url": "https://irraquated.github.io"
     },
@@ -26,6 +30,10 @@
     {
       "name": "Spudling",
       "url": "https://github.com/Spudling"
+    },
+    {
+      "name": "The Run",
+      "url": "https://github.com/TheRun98"
     }
   ],
   "repository": {
