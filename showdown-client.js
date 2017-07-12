@@ -1,7 +1,7 @@
 /*
  * Minimized version of Pokemon Showdown Client for Node JS
  *
- * By: Ecuacion (https://github.com/Ecuacion) (C) Copyright 2015-2016
+ * By: Ecuacion (https://github.com/Ecuacion) (C) Copyright 2017-2018
  *
  * Part of this code is imported from other developments, so credits to:
  *
@@ -117,7 +117,7 @@ var Client = (function () {
 		self.rooms = {};
 		self.roomcount = 0;
 		webSocket.on('connectFailed', function (err) {
-			self.error("Could not connect to server " + self.opts.server + ": " + sys.inspect(err));
+			self.error("Could not connect to server " + self.opts.server + ": " + util.inspect(err));
 			self.events.emit('disconnect', err);
 			if (self.opts.autoReconnect) {
 				self.debug("retrying in " + (self.opts.autoReconnectDelay / 1000) + " seconds");
@@ -132,7 +132,7 @@ var Client = (function () {
 			self.status.connected = true;
 			self.connection = connection;
 			connection.on('error', function (err) {
-				self.error('connection error: ' + sys.inspect(err));
+				self.error('connection error: ' + util.inspect(err));
 				self.connection = null;
 				self.status.connected = false;
 				self.events.emit('disconnect', err);
@@ -144,7 +144,7 @@ var Client = (function () {
 				}
 			});
 			connection.on('close', function () {
-				self.debug('connection closed: ' + sys.inspect(arguments));
+				self.debug('connection closed: ' + util.inspect(arguments));
 				self.connection = null;
 				self.status.connected = false;
 				self.events.emit('disconnect', 0);
@@ -169,7 +169,7 @@ var Client = (function () {
 			str += chars.charAt(~~(Math.random() * l));
 		}
 		var conStr = 'ws://' + self.opts.server + ':' + self.opts.port + '/showdown/' + id + '/' + str + '/websocket';
-		self.debug('connecting to ' + conStr + ' - secondary protocols: ' + sys.inspect(self.opts.secprotocols));
+		self.debug('connecting to ' + conStr + ' - secondary protocols: ' + util.inspect(self.opts.secprotocols));
 		webSocket.connect(conStr, self.opts.secprotocols);
 	};
 
@@ -252,7 +252,7 @@ var Client = (function () {
 			}.bind(this));
 		}.bind(this));
 		req.on('error', function (err) {
-			this.error('login error: ' + sys.inspect(err));
+			this.error('login error: ' + util.inspect(err));
 			if (this.opts.retryLogin) {
 				this.debug("Retrying log in process in " + (this.opts.retryLogin / 1000) + " seconds...");
 				setTimeout(function () {this.rename(nick, pass);}.bind(this), this.opts.retryLogin);

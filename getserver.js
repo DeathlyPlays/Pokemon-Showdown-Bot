@@ -13,7 +13,7 @@ try {
 require('sugar');
 var colors = require('colors');
 var readline = require('readline');
-var sys = require('sys');
+var util = require('util');
 var url = require('url');
 var http = require('http');
 var fs = require('fs');
@@ -79,14 +79,14 @@ function askUrl () {
 				}
 			});
 			res.on('error', function (err) {
-				console.log('ERROR: ' + sys.inspect(err));
+				console.log('ERROR: ' + util.inspect(err));
 				rl.close();
 				process.exit(-1);
 			});
 		});
 
 		req.on('error', function (err) {
-			console.log('ERROR: ' + sys.inspect(err));
+			console.log('ERROR: ' + util.inspect(err));
 			rl.close();
 			process.exit(-1);
 		});
