@@ -108,7 +108,7 @@ Credits
  
 Contributors:
 
- - [Freigeist](https://github.com/Freigeist) 
+ - [Freigeist](https://github.com/Freigeist) (Languages/Translation feature and bug fixes)
  - [Insist](https://github.com/DeathlyPlays) (bug fixes)
  - [Irraquated](https://github.com/Irraquated) (Languages and bug fixes)
  - [panpawn](https://github.com/panpawn) (YouTube feature, fixes)
