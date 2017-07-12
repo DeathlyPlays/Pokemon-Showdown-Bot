@@ -20,7 +20,7 @@ try {
 
 var readline = require('readline-sync');
 var fs = require('fs');
-var sys = require('sys');
+var util = require('util');
 var url = require('url');
 var http = require('http');
 
@@ -114,12 +114,12 @@ function getServer (serverUrl, callback) {
 			}
 		});
 		res.on('error', function (err) {
-			console.log('ERROR: ' + sys.inspect(err));
+			console.log('ERROR: ' + util.inspect(err));
 			callback(false);
 		});
 	});
 	req.on('error', function (err) {
-		console.log('ERROR: ' + sys.inspect(err));
+		console.log('ERROR: ' + util.inspect(err));
 		callback(false);
 	});
 	req.end();
