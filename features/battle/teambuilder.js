@@ -25,7 +25,7 @@ module.exports = {
 	mergeTeams: function () {
 		if (this.teams) delete this.teams;
 		this.teams = {};
-		Object.merge(this.teams, this.staticTeams);
+		Object.assign(this.teams, this.staticTeams);
 		for (var i in this.dynTeams) {
 			var team = this.dynTeams[i];
 			if (!this.teams[team.format]) this.teams[team.format] = [];
