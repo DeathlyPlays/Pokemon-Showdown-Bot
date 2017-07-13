@@ -1,9 +1,9 @@
 Pokemon Showdown Bot for Node
 ====================
 
-[![Build Status](https://travis-ci.org/Ecuacion/Pokemon-Showdown-Node-Bot.svg)](https://travis-ci.org/DeathlyPlays/Pokemon-Showdown-Node-Bot)
-[![Dependency Status](https://david-dm.org/Ecuacion/Pokemon-Showdown-Node-Bot.svg)](https://david-dm.org/DeathlyPlays/Pokemon-Showdown-Node-Bot)
-[![devDependency Status](https://david-dm.org/Ecuacion/Pokemon-Showdown-Node-Bot/dev-status.svg)](https://david-dm.org/DeathlyPlays/Pokemon-Showdown-Node-Bot#info=devDependencies)
+[![Build Status](https://travis-ci.org/DeathlyPlays/Pokemon-Showdown-Bot.svg)](https://travis-ci.org/DeathlyPlays/Pokemon-Showdown-Bot)
+[![Dependency Status](https://david-dm.org/DeathlyPlays/Pokemon-Showdown-Bot.svg)](https://david-dm.org/DeathlyPlays/Pokemon-Showdown-Bot)
+[![devDependency Status](https://david-dm.org/DeathlyPlays/Pokemon-Showdown-Node-Bot/dev-status.svg)](https://david-dm.org/DeathlyPlays/Pokemon-Showdown-Bot#info=devDependencies)
 [![Version](https://img.shields.io/badge/version-0.8.0-orange.svg)](https://github.com/DeathlyPlays/Pokemon-Showdown-Bot#pokemon-showdown-bot-for-node)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](http://opensource.org/licenses/MIT)
 
