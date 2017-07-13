@@ -10,7 +10,8 @@ function tryGetRoomName (room) {
 }
 
 exports.commands = {
-	tourpoll: nexttour,
+	tierpoll: 'nexttour',
+	tourpoll: 'nexttour',
 	nexttour: function (arg, by, room, cmd) {
 		//This can be set to whatever you want
 		this.reply("/tierpoll"); //Placeholder unless anyone wants to set the format
