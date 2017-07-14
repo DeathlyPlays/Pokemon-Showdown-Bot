@@ -410,7 +410,7 @@ var loadTranslations = exports.loadTranslations = function (reloading) {
 				translations[lang] = loadLang(lang, reloading);
 			} catch (e) {
 				errlog(e.stack);
-				error("Could not import language: ./languages/" + lang + "/ | " + sys.inspect(e));
+				error("Could not import language: ./languages/" + lang + "/ | " + util.inspect(e));
 				errs.push(lang);
 			}
 		}
