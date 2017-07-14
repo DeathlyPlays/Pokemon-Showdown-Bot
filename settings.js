@@ -5,7 +5,7 @@
 const settingsDataFile = AppOptions.data + 'settings.json';
 const cacheDataFile = AppOptions.data + '_temp/' + 'http-cache.json';
 
-var settings = exports.settings = {};
+const settings = exports.settings = {};
 
 var FlatFileManager = exports.FlatFileManager = (function () {
 	function FlatFileManager (file) {
