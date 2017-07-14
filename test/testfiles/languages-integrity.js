@@ -13,6 +13,6 @@ describe("Languages", function () {
 	});
 	it("Should exist a default language", function () {
 		Tools.loadTranslations();
-		assert.notStrictEqual(Tools.translations["english"], undefined)
+		assert.notStrictEqual(Tools.translations["english"])
 	});
 });
