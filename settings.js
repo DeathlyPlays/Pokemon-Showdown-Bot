@@ -61,14 +61,6 @@ var FlatFileManager = exports.FlatFileManager = (function () {
 })();
 
 var settingsFFM = exports.settingsFFM = new FlatFileManager(settingsDataFile);
-
-try {
-	settings = exports.settings = settingsFFM.readObj();
-} catch (e) {
-	errlog(e.stack);
-	error("Could not import settings: " + sys.inspect(e));
-}
-
 var save = exports.save =  function () {
 	settingsFFM.writeObj(settings);
 };
