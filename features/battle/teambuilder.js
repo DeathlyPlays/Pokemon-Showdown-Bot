@@ -17,7 +17,7 @@ module.exports = {
 			this.mergeTeams();
 			return true;
 		} catch (e) {
-			error('failed to load teams: ' + sys.inspect(e));
+			error('failed to load teams: ' + util.inspect(e));
 			return false;
 		}
 	},
