@@ -15,7 +15,7 @@ exports.commands = {
 	nexttour: function (arg, by, room, cmd) {
 		//This can be set to whatever you want
 		this.reply("/tierpoll"); //Placeholder unless anyone wants to set the format
-		this.reply("/poll timer 1.5"); //minor bug where if you do /tierpoll while a poll is going on it sets the timer
+		this.reply("/poll timer 3"); //minor bug where if you do /tierpoll while a poll is going on it sets the timer
 	},
 
 	tourhelp: function (arg, by, room, cmd) {
