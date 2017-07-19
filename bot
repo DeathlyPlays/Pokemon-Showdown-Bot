@@ -2,6 +2,7 @@
 
 try {
 	require('sugar');
+	require('jshint');
 	require('colors');
 	require('websocket')
 } catch (e) {
