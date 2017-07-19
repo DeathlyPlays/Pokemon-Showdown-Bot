@@ -29,6 +29,8 @@ Installation
 
 Pokémon Showdown Bot requires [node.js](http://nodejs.org/) to run. Install the last stable version if you do not have it.
 
+Do this by running ``` nvm install ```
+
 The first step is cloning this repo, install [Git](https://git-scm.com/) if you have not it and use the following command on shell console:
 ```
 $ git clone --branch=master git://github.com/Ecuacion/Pokemon-Showdown-Node-Bot.git Pokemon-Showdown-Node-Bot
@@ -37,8 +39,10 @@ You can also download a Zip of this repo and decompress it.
 
 Then open a shell console, use `cd` to reach the directory of the bot and install dependencies:
 ```
-$ npm install --production
+$ npm install -g
 ```
+Another way of installing Node to the latest stable version is by running ```nvm install node --reinstall-packages-from=node```
+
 If you want to use `npm test` for development, install all dependencies with `npm install`
 
 To configure your bot, copy `config-example.js` to `config.js` and edit that file. You can specify bot login credentials among other things. If you don't specify credentials, the bot will log in a random username started by 'Bot'. Read the [Configuration Guide](https://github.com/DeathlyPlays/Pokemon-Showdown-Bot/blob/master/CONFIGGUIDE.md) for more information
@@ -52,7 +56,7 @@ if you have an old version of `Pokemon Showdown Node Bot` and you want to update
 ```
 git pull https://github.com/DeathlyPlays/Pokemon-Showdown-Bot.git
 ```
-Don't forget to use `npm install --production` after each update to re-install the outdated dependencies.
+Don't forget to use `npm install -g` after each update to re-install the outdated dependencies.
 
 Configuration
 ------------
