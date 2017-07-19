@@ -46,7 +46,7 @@
   "main": "bot",
   "bin": "./bot",
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=8.0.0"
   },
   "private": true,
   "license": "MIT",
