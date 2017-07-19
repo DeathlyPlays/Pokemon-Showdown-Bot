@@ -38,10 +38,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Ecuacion/Pokemon-Showdown-Node-Bot"
+    "url": "https://github.com/DeathlyPlays/Pokemon-Showdown-Bot"
   },
   "bugs": {
-    "url": "https://github.com/Ecuacion/Pokemon-Showdown-Node-Bot/issues"
+    "url": "https://github.com/DeathlyPlays/Pokemon-Showdown-Bot/issues"
   },
   "main": "bot",
   "bin": "./bot",
