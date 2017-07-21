@@ -38,15 +38,15 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Ecuacion/Pokemon-Showdown-Node-Bot"
+    "url": "https://github.com/DeathlyPlays/Pokemon-Showdown-Bot"
   },
   "bugs": {
-    "url": "https://github.com/Ecuacion/Pokemon-Showdown-Node-Bot/issues"
+    "url": "https://github.com/DeathlyPlays/Pokemon-Showdown-Bot/issues"
   },
   "main": "bot",
   "bin": "./bot",
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=8.0.0"
   },
   "private": true,
   "license": "MIT",

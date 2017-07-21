@@ -82,7 +82,7 @@ var loadCommands = exports.loadCommands = function (reloading) {
 				Object.assign(commands, require('./commands/' + file).commands);
 			} catch (e) {
 				errlog(e.stack);
-				error("Could not import commands file: ./commands/" + file + " | " + sys.inspect(e));
+				error("Could not import commands file: ./commands/" + file + " | " + util.inspect(e));
 				errs.push(file);
 			}
 		}
@@ -98,7 +98,7 @@ try {
 	dynCommands = exports.dynCommands = dynCommandsFFM.readObj();
 } catch (e) {
 	errlog(e.stack);
-	error("Could not import dynamic commands: " + sys.inspect(e));
+	error("Could not import dynamic commands: " + util.inspect(e));
 }
 
 var saveDynCmds = exports.saveDynCmds =  function () {
@@ -359,12 +359,12 @@ var parse = exports.parse = function (room, by, msg) {
 				commands[handler].call(context, args, by, room, cmd);
 			} catch (e) {
 				errlog(e.stack);
-				error("Command crash: " + cmd + ' | by: ' + by + ' | room: ' + room + ' | ' + sys.inspect(e));
+				error("Command crash: " + cmd + ' | by: ' + by + ' | room: ' + room + ' | ' + util.inspect(e));
 				SecurityLog.log("COMMAND CRASH: " + e.message + "\ncmd: " + cmd + " | by: " + by + " | room: " + room + "\n" + e.stack);
-				Bot.say(room, 'The command crashed: ' + sys.inspect(e).toString().split('\n').join(' '));
+				Bot.say(room, 'The command crashed: ' + util.inspect(e).toString().split('\n').join(' '));
 			}
 		} else {
-			error("unkwown command type: " + cmd + ' = ' + sys.inspect(commands[handler]));
+			error("unkwown command type: " + cmd + ' = ' + util.inspect(commands[handler]));
 		}
 	}
 };
