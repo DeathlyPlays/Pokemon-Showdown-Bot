@@ -14,7 +14,7 @@ exports.commands = {
 	tourpoll: 'nexttour',
 	nexttour: function (arg, by, room, cmd) {
 		//This can be set to whatever you want
-		this.reply("/tierpoll"); //Placeholder unless anyone wants to set the format
+		this.reply("/poll new What should the next tournament be?, Random Battle, OU, Ubers, UU, RU, NU, PU, LC, Doubles OU, VGC, Monotype, Challenge Cup 1v1, Other (Say it in chat!)"); //Placeholder unless anyone wants to set the format
 		this.reply("/poll timer 3"); //minor bug where if you do /tierpoll while a poll is going on it sets the timer
 	},
 
