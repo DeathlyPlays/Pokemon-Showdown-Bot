@@ -10,6 +10,7 @@ var jshint = require('gulp-jshint');
 var replace = require('gulp-replace');
 var FileCache = require('cache-swap');
 var jshintStylish = require('jshint-stylish');
+var jshint = require('jshint');
 
 var globals = {};
 var globalList = [
