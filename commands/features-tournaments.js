@@ -10,6 +10,14 @@ function tryGetRoomName (room) {
 }
 
 exports.commands = {
+	tierpoll: 'nexttour',
+	tourpoll: 'nexttour',
+	nexttour: function (arg, by, room, cmd) {
+		//This can be set to whatever you want
+		this.reply("/poll new What should the next tournament be?, Random Battle, OU, Ubers, UU, RU, NU, PU, LC, Doubles OU, VGC, Monotype, Challenge Cup 1v1, Other (Say it in chat!)");
+		this.reply("/poll timer 3"); //minor bug where if you do /tierpoll while a poll is going on it sets the timer
+	},
+
 	tourhelp: function (arg, by, room, cmd) {
 		this.restrictReply('Usage: ' + this.cmdToken + this.trad('h'), 'tournament');
 	},
