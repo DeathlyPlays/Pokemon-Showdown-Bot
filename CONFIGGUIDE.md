@@ -1,7 +1,7 @@
 Pokemon Showdown Node Bot - Configuration Guide
 ====================
 
-This guide is a explanation of how to configure [Pokemon-Showdown-Node-Bot](https://github.com/Ecuacion/Pokemon-Showdown-Node-Bot) once installed.
+This guide is a explanation of how to configure [Pokemon-Showdown-Bot](https://github.com/DeathlyPlays/Pokemon-Showdown-Bot)
 
 First of all, copy `config-example.js` to `config.js`
 
@@ -240,7 +240,7 @@ In this example, in a server there is a private room with modjoin called `Admins
 GoupChats (Optional)
 ------------
 
-You can use this feature to set events (arrays of commands to be sent on certain circunstances). For example:
+You can use this feature to set events (arrays of commands to be sent on certain circumstances). For example:
 
 ```js
 exports.groupchats['groupchat-ecuacion-test'] = {
@@ -254,4 +254,4 @@ exports.groupchats['groupchat-ecuacion-test'] = {
 
 **onJoin:** This is sent when the bot joins the room. For example for setting the modchat, roomintro, etc or just a greeting.
 
-**toJoin:** This is sent when the bot leaves the room. For example for recreating the groupchat after it expires.
+**onLeave:** This is sent when the bot leaves the room. For example for recreating the groupchat after it expires.
